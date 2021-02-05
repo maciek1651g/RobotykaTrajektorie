@@ -1,0 +1,105 @@
+#kontener
+{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 1200px;
+	margin: 0 auto;
+	border: 1px solid black;
+	text-align:center;
+	padding:5px;
+}
+
+#naglowek
+{
+	width: 100%;
+}
+
+#zad1, #zad2
+{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 500px;
+	border: 1px solid black;
+	margin-top: 5px;
+}
+
+#zad1_1, #zad1_2, #zad2_1, #zad2_2
+{
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	justify-content:center;
+	width: 100%;
+	border: 1px solid black;
+	margin: 5px;
+}
+
+.dane
+{
+	display: flex;
+	flex-direction: column;
+	margin: 7px;
+}
+
+.dane > p
+{
+	margin:0px;
+}
+
+.dane > h3
+{
+	margin:5px;
+}
+
+.dane1
+{
+	display: flex;
+	flex-direction: column;
+	margin: 7px;
+	width:100%;
+}
+
+.dane1 > p
+{
+	margin:0px;
+}
+
+#wynik12, #wynik22
+{
+	display: flex;
+	overflow-y: scroll;
+	height:400px;
+	justify-content: center;
+}
+
+#wynik12 ,#wynik22
+{
+	display: flex;
+	justify-content: center;
+}
+
+#wynik11 ,#wynik21
+{
+	min-width:400px; 
+	min-height:150px;
+}
+
+#wynik21tabela
+{
+	display: flex;
+	justify-content: center;
+}
+
+input
+{
+	margin:5px;
+	padding:5px;
+}
+
+table, tr, th, td
+{
+	border-collapse: collapse;
+	border: 1px solid black;
+}

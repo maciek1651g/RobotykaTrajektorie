@@ -1,0 +1,178 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Podstawy robotyki - Praca domowa 2</title>
+		<link rel="Stylesheet" href="./style.css" type="text/css">
+		<script src='./skrypty/plotly-latest.min.js'></script>
+		<script src='./skrypty/rysujWykres.js'></script>
+		<script src='./skrypty/metody_ukladowe.js'></script>
+		<script src='./skrypty/kinematyka_odwrotna_h30.js'></script>
+		<script src='./skrypty/kinematyka_prosta_h30.js'></script>
+		<script src='./skrypty/kinematyka_prosta_h20.js'></script>
+		<script src='./skrypty/najlepsze_rozwiazanie.js'></script>
+		<script src='./skrypty/zad11.js'></script>
+		<script src='./skrypty/zad12.js'></script>
+		<script src='./skrypty/zad21.js'></script>
+		<script src='./skrypty/zad22.js'></script>
+	</head>
+
+	<body>
+		<div id="kontener">
+			<div id="naglowek">
+				<h1>Podstawy robotyki - Praca domowa 1</h1>
+				<h2>Maciej Dominiak</h2>
+			</div>
+			<h2>Planowanie trajektori point-to-point</h2>
+			<div id="zad1">
+				<div id="zad1_1">
+					<div class="dane">
+						<h3>Położenie początkowe</h3>
+						<p>
+							<label for="pp1x">&theta;<sub>1</sub>:</label>
+							<input id="pp1x" type="number" placeholder="Wpisz kąt w stopniach..."/>
+						</p>
+						<p>
+							<label for="pp1y">&theta;<sub>2</sub>:</label>
+							<input id="pp1y" type="number" placeholder="Wpisz kąt w stopniach..."/>
+						</p>
+						<p>
+							<label for="pp1z">&theta;<sub>3</sub>:</label>
+							<input id="pp1z" type="number" placeholder="Wpisz kąt w stopniach..."/>
+						</p>
+					</div>
+					<div class="dane">
+						<h3>Położenie końcowe</h3>
+						<p>
+							<label for="pk1x">X:</label>
+							<input id="pk1x" type="number" placeholder="Wpisz położenie..."/>
+						</p>
+						<p>
+							<label for="pk1y">Y:</label>
+							<input id="pk1y" type="number" placeholder="Wpisz położenie..."/>
+						</p>
+						<p>
+							<label for="pk1z">Z:</label>
+							<input id="pk1z" type="number" placeholder="Wpisz położenie..."/>
+						</p>
+					</div>
+					<div class="dane">
+						<h3>Czas ruchu</h3>
+						<p>
+							<label for="t11">t<sub>1</sub>:</label>
+							<input id="t11" type="number" placeholder="Czas ruchu..."/>
+						</p>
+						<h3>Precyzja wyniku:</h3>
+						<p>
+							<label for="p11">P<sub>1</sub>:</label>
+							<input id="p11" type="number" placeholder="Podaj precyzję wyniku(2)..."/>
+						</p>
+						<p>
+							<button onclick="wyswietl_zad11()">Oblicz</button>
+						</p>
+					</div>
+					<div id="wynik11" class="dane">
+						<h3>Wynik</h3>
+						<div id="wynik11tabela">
+						</div>
+					</div>
+				</div>
+				<div id="zad1_2">
+					<div class="dane1">
+						<p>
+							<label for="k12">krok:</label>
+							<input id="k12" type="number" placeholder="Wpisz ktok czasowy(0,02)..."/>
+							<button onclick="pokaz_liste12()">Pokaż listę kroków</button>
+							<button onclick="pokaz_wykres12()">Pokaż tor ruchu</button>
+						</p>
+						<div id="wynik12">
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			
+			
+			<h2>Planowanie trajektori liniowej</h2>
+			<div id="zad2">
+				<div id="zad2_1">
+					<div class="dane">
+						<h3>Położenie początkowe</h3>
+						<p>
+							<label for="pp2x">&theta;<sub>1</sub>:</label>
+							<input id="pp2x" type="number" placeholder="Wpisz kąt w stopniach..."/>
+						</p>
+						<p>
+							<label for="pp2y">&theta;<sub>2</sub>:</label>
+							<input id="pp2y" type="number" placeholder="Wpisz kąt w stopniach..."/>
+						</p>
+						<p>
+							<label for="pp2z">&theta;<sub>3</sub>:</label>
+							<input id="pp2z" type="number" placeholder="Wpisz kąt w stopniach..."/>
+						</p>
+					</div>
+					<div class="dane">
+						<h3>Położenie końcowe</h3>
+						<p>
+							<label for="pk2x">X:</label>
+							<input id="pk2x" type="number" placeholder="Wpisz położenie..."/>
+						</p>
+						<p>
+							<label for="pk2y">Y:</label>
+							<input id="pk2y" type="number" placeholder="Wpisz położenie..."/>
+						</p>
+						<p>
+							<label for="pk2z">Z:</label>
+							<input id="pk2z" type="number" placeholder="Wpisz położenie..."/>
+						</p>
+					</div>
+					<div class="dane">
+						<h3>Prędkość ruchu</h3>
+						<p>
+							<label for="V21">V:</label>
+							<input id="V21" type="number" placeholder="Prędkość ruchu..."/>
+						</p>
+						<h3>Precyzja wyniku:</h3>
+						<p>
+							<label for="p21">P<sub>1</sub>:</label>
+							<input id="p21" type="number" placeholder="Podaj precyzję wyniku(2)..."/>
+						</p>
+						<p>
+							<button onclick="wyswietl_zad21()">Oblicz</button>
+						</p>
+					</div>
+					<div class="dane">
+						<h3>Czas ruchu</h3>
+						<p>
+							<label for="t21">t<sub>1</sub>:</label>
+							<input id="t21" type="number" placeholder="Czas ruchu..."/>
+						</p>
+						<p>
+							<p>Czas t<sub>1</sub> powinien wynosić:</p>
+							<p id="czas_t21"></p>
+						</p>
+					</div>
+					
+					<div id="wynik21" class="dane">
+						<h3>Wynik</h3>
+							<div id="wynik21tabela">
+							</div>
+					</div>
+				</div>
+				<div id="zad2_2">
+					<div class="dane1">
+						<p>
+							<label for="k22">krok:</label>
+							<input id="k22" type="number" placeholder="Wpisz ktok czasowy(0,02)..."/>
+							<button onclick="pokaz_liste22()">Pokaż listę kroków</button>
+							<button onclick="pokaz_wykres22()">Pokaż tor ruchu</button>
+						</p>
+						<div id="wynik22">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
